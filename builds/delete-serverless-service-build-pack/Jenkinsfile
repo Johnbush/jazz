@@ -1117,6 +1117,24 @@ def removeEventResources() {
    sh "sed -i -- '/#Start:events/,/#End:events/d' ./serverless.yml"
 }
 
+/**
+* Function to get the Credential Id
+* Takes AccountId where the service is deployed
+* and configLoader object as the Input
+**/
+
+def getCredentialID(deployedAccountId , configJson){
+	def credsId= "";
+	def allAccounts = configJson.AWS.ACCOUNTS;
+	for( account in allAccounts ){
+		def accountId = account['ACCOUNTID'];
+		if(accountId == deployedAccountId){
+			credsId = account["CREDENTIAL_ID"];
+		}
+	}
+	return credsId;
+}
+
 
 
 /**
