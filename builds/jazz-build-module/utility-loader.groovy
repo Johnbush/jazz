@@ -220,7 +220,11 @@ def getAccountBucketName(service_config) {
 *  Get Account Specific API Gateway
 */
 
+<<<<<<< HEAD
 def getApiId(service_config) {
+=======
+def getAccountAPIName(service_config) {
+>>>>>>> delete build pack changes
 	def apiGateway = {}
 	def accountObject = getAccountInfo(service_config);
 	if( accountObject.size() > 0){
