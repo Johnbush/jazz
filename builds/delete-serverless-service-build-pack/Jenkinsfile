@@ -233,8 +233,6 @@ node {
 
 			case "SLSAPP":
 				stage('Undeploy Service') {
-					//updateServiceNameConfig()
-
           for (_envId in environmentIds) {
 						current_environment_id = _envId
 						loadServerlessYml(service_config, env)
@@ -1120,7 +1118,6 @@ def LoadConfiguration() {
 /** 
 ** Create Serverless.yml from config
 **/
-
 def loadServerlessYml(config, env){
 	def deploymentDescriptor = prepareServerlessYml(config, env) // Generating the deployment descriptor
   echo "prepareServerlessYml = ${deploymentDescriptor}"
